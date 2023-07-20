@@ -1,0 +1,6 @@
+# Archivos y carpetas ignorados por Git
+
+node_modules/
+dist/
+.env
+db.js
