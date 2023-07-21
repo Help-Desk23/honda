@@ -2,11 +2,8 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const {getModels, pool} = require("./db");
-const swaggerUi = require("swagger-ui-express");
-const swaggerDocument = require("./package.json");
 
 app.use(express.json());
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Ruta Principal
 app.get("/", (req, res) => {
