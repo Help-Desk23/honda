@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const {getModels, pool} = require("./db");
+const {swaggerDocs: V1SwaggerDocs } = require('./swagger');
 
 app.use(express.json());
 
@@ -78,4 +79,5 @@ app.use(router);
 const port = 3000;
 app.listen(port, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
+  V1SwaggerDocs(app, port);
 });
