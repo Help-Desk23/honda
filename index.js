@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const { pool } = require("./src/database/db");
 const { getModels, addModels, updateModels, deleteModels} = require("./src/controllers/modelControlle");
-const routes = require("./src/routes/modelRoutes");
+const routes = require("./src/v1/routes/modelRoutes");
+const { swaggerDocs: V1SwaggerDocs } = require("./v1/swagger");
 
 
 app.use(express.json());
