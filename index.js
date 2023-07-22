@@ -3,7 +3,7 @@ const app = express();
 const { pool } = require("./src/database/db");
 const { getModels, addModels, updateModels, deleteModels} = require("./src/controllers/modelControlle");
 const routes = require("./src/v1/routes/modelRoutes");
-const { swaggerDocs: V1SwaggerDocs } = require("./v1/swagger");
+const { swaggerDocs: V1SwaggerDocs } = require("./src/v1/swagger");
 
 
 app.use(express.json());
@@ -15,10 +15,10 @@ app.get("/", (req, res) => {
 
 // Asociar el enrutador a la aplicación Express
 app.use("/", routes);
-app.use()
 
 // Arrancar el Servidor en el puerto especifico
 const port = 3000;
 app.listen(port, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
+  V1SwaggerDocs(app, port);
 });

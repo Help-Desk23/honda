@@ -3,6 +3,29 @@ const { getModels, addModels, updateModels, deleteModels } = require("../../cont
 
 const router = express.Router();
 
+/**
+ * @openapi
+ * /model:
+ *   get:
+ *     tags:
+ *       - Model
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: OK
+ *                 data:
+ *                   type: array 
+ *                   items: 
+ *                     type: object
+ */
+
 // Asignar los controladores a las rutas correspondientes
 router.get("/model", getModels);
 router.post("/model", addModels);
