@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 
 // Asociar el enrutador a la aplicación Express
 app.use("/", routes);
+app.use()
 
 // Arrancar el Servidor en el puerto especifico
 const port = 3000;
