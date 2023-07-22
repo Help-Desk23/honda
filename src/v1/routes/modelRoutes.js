@@ -11,7 +11,7 @@ const router = express.Router();
  *       - Model
  *     responses:
  *       200:
- *         description: OK
+ *         description: Muestra los datos de la ruta model
  *         content:
  *           application/json:
  *             schema:
@@ -23,7 +23,7 @@ const router = express.Router();
  *                 data:
  *                   type: array 
  *                   items: 
- *                     type: object
+ *                     $ref: "#/components/schemas/model"
  */
 
 // Asignar los controladores a las rutas correspondientes
