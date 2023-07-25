@@ -3,7 +3,7 @@ const { getModels, addModels, updateModels, deleteModels } = require("../../cont
 
 const router = express.Router();
 
-
+// Ruta GET en Swagger
 /**
  * @openapi
  * /model:
@@ -27,11 +27,15 @@ const router = express.Router();
  *                     $ref: "#/components/schemas/model"
  */
 
+router.get("/model", getModels);
+
+// Ruta POST en Swagger
+
 /**
  * @swagger
  * /model:
  *   post:
- *     summary: Crea un nuevo modelo
+ *     summary: Ingresa una moto nueva
  *     description: Crea un nuevo modelo con los datos proporcionados.
  *     tags:
  *       - Model
@@ -50,10 +54,69 @@ const router = express.Router();
  *         description: Error del servidor
  */
 
-// Asignar los controladores a las rutas correspondientes
-router.get("/model", getModels);
 router.post("/model", addModels);
+
+// Ruta PUT en Swagger
+
+/**
+ * @swagger
+ * /model/{id}:
+ *   put:
+ *     summary: Actualiza un modelo existente
+ *     description: Actualiza un modelo existente con los datos proporcionados.
+ *     tags:
+ *       - Model
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID del modelo a actualizar
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/model'
+ *     responses:
+ *       200:
+ *         description: Modelo actualizado exitosamente
+ *       400:
+ *         description: Error en la solicitud del cliente
+ *       500:
+ *         description: Error del servidor
+ */
+
 router.put("/model/:id", updateModels);
+
+
+// Ruta DELETE en Swagger
+
+/**
+ * @swagger
+ * /model/{id}:
+ *   delete:
+ *     summary: Elimina un modelo existente
+ *     description: Elimina un modelo existente con el ID proporcionado.
+ *     tags:
+ *       - Model
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID del modelo a eliminar
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Modelo eliminado exitosamente
+ *       400:
+ *         description: Error en la solicitud del cliente
+ *       500:
+ *         description: Error del servidor
+ */
+
 router.delete("/model/:id", deleteModels);
 
 module.exports = router;
