@@ -9,7 +9,7 @@ const getModels = async (req, res) => {
         res.status(200).json(result.rows);
     } catch (error){
         console.error("Error en la consulta", error)
-        res.status(500).json({error: "Error en la consulta GET"});
+        res.status(500).json({error: "Error en la consulta"});
     }
 };
 

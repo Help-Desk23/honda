@@ -4,7 +4,7 @@
   "description": "Pagina Web Version 24",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Juan Carlos Andrade Barba",
   "license": "ISC",
@@ -15,5 +15,10 @@
     "pg": "^8.11.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "sinon": "^15.2.0"
   }
 }
