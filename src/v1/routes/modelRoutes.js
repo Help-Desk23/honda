@@ -3,6 +3,7 @@ const { getModels, addModels, updateModels, deleteModels } = require("../../cont
 
 const router = express.Router();
 
+
 /**
  * @openapi
  * /model:
@@ -24,6 +25,29 @@ const router = express.Router();
  *                   type: array 
  *                   items: 
  *                     $ref: "#/components/schemas/model"
+ */
+
+/**
+ * @swagger
+ * /model:
+ *   post:
+ *     summary: Crea un nuevo modelo
+ *     description: Crea un nuevo modelo con los datos proporcionados.
+ *     tags:
+ *       - Model
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/model"
+ *     responses:
+ *       200:
+ *         description: Modelo creado exitosamente
+ *       400:
+ *         description: Error en la solicitud del cliente
+ *       500:
+ *         description: Error del servidor
  */
 
 // Asignar los controladores a las rutas correspondientes
