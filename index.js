@@ -4,7 +4,7 @@ const { pool } = require("./src/database/db");
 const { getModels, addModels, updateModels, deleteModels} = require("./src/controllers/modelControlle");
 const routes = require("./src/v1/routes/modelRoutes");
 const { swaggerDocs: V1SwaggerDocs } = require("./src/v1/swagger");
-
+const cors = require("cors");
 
 app.use(express.json());
 
@@ -12,6 +12,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.end("PAGINA PRINCIAL HONDA!");
 });
+
+// Configurar CORS para permitir solicitudes desde http://localhost:5173
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 // Asociar el enrutador a la aplicación Express
 app.use("/", routes);
